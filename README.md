@@ -6,9 +6,9 @@ A full-stack financial workflow tool designed for independent contractors, freel
 
 ## 🔗 Project Links
 
-- **Live Deployment:** [https://your-deployment-link.com](https://your-deployment-link.com)
-- **Video Walkthrough:** [Demo Video Link (Loom / YouTube)](https://your-video-link.com)
-- **Repository:** [https://github.com/your-username/invoice-tracker](https://github.com/your-username/invoice-tracker)
+- **Live Deployment:** [https://invoice-ered.vercel.app]
+- **Video Walkthrough:** [https://drive.google.com/file/d/1ri_-F4X5_BY2xWOsVtowXBAfUxCEXfTs/view?usp=drive_link]
+- **Repository:** [https://github.com/Rahul5718/invoice]
 
 ---
 
