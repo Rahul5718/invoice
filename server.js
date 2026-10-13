@@ -7,8 +7,9 @@ const User = require('./models/user');
 const apiRoutes  = require('./routes/route')
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/invoicetracker';
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://rahulkatravath03_db_user:<Rahull123>@cluster0.0gnueg6.mongodb.net/invoicetracker?retryWrites=true&w=majority'
+;
 
 // Middleware
 app.use(cors());
@@ -74,9 +75,9 @@ app.get('/', (req, res) => {
 app.use('/api', apiRoutes)
 
 
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+if (require.main === module) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
   });
 }
 module.exports = app;
