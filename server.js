@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -8,7 +9,7 @@ const apiRoutes  = require('./routes/route')
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://rahulkatravath03_db_user:<Rahull123>@cluster0.0gnueg6.mongodb.net/invoicetracker?retryWrites=true&w=majority'
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://rahulkatravath03_db_user:Rahull123@cluster0.0gnueg6.mongodb.net/invoicetracker?retryWrites=true&w=majority'
 ;
 
 // Middleware
