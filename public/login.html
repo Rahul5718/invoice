@@ -8,78 +8,151 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="auth.css">
+  <!-- Dedicated CSS for the left info panel -->
+  <link rel="stylesheet" href="info-panel.css">
 </head>
 <body>
-  <div class="auth-card">
-    <!-- Header with Branding -->
-    <div class="auth-header">
-      <div class="brand-badge">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-          <line x1="16" y1="13" x2="8" y2="13"></line>
-          <line x1="16" y1="17" x2="8" y2="17"></line>
-        </svg>
-      </div>
-      <h1 id="auth-title">Welcome Back</h1>
-      <p id="auth-subtitle">Sign in to manage and dispatch your invoices.</p>
-    </div>
 
-    <!-- Toggle Switch -->
-    <div class="toggle-container">
-      <button type="button" class="toggle-btn active" id="tab-login" onclick="switchTab('login')">Sign In</button>
-      <button type="button" class="toggle-btn" id="tab-register" onclick="switchTab('register')">Register</button>
-    </div>
+  <!-- Main Split Layout Container -->
+  <div class="portal-wrapper">
+    
+    <!-- LEFT SIDE: Product Explainer Panel -->
+    <div class="info-panel">
+      <div class="info-content">
+        <div class="info-tag">Effortless Billing</div>
+        <h2 class="info-title">Create, Track, and Settle Invoices in Minutes.</h2>
+        <p class="info-description">
+          Invoicely streamlines your billing workflow from start to finish. Generate polished PDF invoices, manage client histories, and track paid statuses without the spreadsheet clutter.
+        </p>
 
-    <!-- Feedback Message Box -->
-    <div id="alert-box" class="alert-box" style="display: none;"></div>
+        <!-- Feature List with SVGs -->
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                <polyline points="13 2 13 9 20 9"></polyline>
+              </svg>
+            </div>
+            <div>
+              <strong>Instant PDF Generation</strong>
+              <p>Create and export professional client-ready bills with automated tax calculations.</p>
+            </div>
+          </div>
 
-    <!-- Login Form -->
-    <form id="login-form" class="auth-form">
-      <div class="form-group">
-        <label for="login-email">Work Email</label>
-        <input type="email" id="login-email" placeholder="alex@studio.com" required>
-      </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <div>
+              <strong>Real-Time Payment Tracking</strong>
+              <p>Monitor overdue accounts and track cash flow with live visual analytics.</p>
+            </div>
+          </div>
 
-      <div class="form-group">
-        <div class="label-row">
-          <label for="login-password">Password</label>
-          <a href="#" class="forgot-link" onclick="handleForgotPassword(event)">Forgot?</a>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div>
+              <strong>Client Management</strong>
+              <p>Save customer details, payment methods, and contact info in one place.</p>
+            </div>
+          </div>
         </div>
-        <input type="password" id="login-password" placeholder="••••••••" required>
+
+        <!-- Metric Card / Graphic Preview -->
+        <div class="preview-card">
+          <div class="preview-header">
+            <span>Monthly Revenue Overview</span>
+            <span class="preview-pill">Active</span>
+          </div>
+          <div class="preview-stat">$14,850.00</div>
+          <div class="preview-progress">
+            <div class="preview-bar"></div>
+          </div>
+          <small>94% of total billed invoices collected this month</small>
+        </div>
       </div>
-
-      <button type="submit" class="btn btn-primary">Sign In</button>
-    </form>
-
-    <!-- Registration Form -->
-    <form id="register-form" class="auth-form" style="display: none;">
-      <div class="form-group">
-        <label for="reg-name">Full Name</label>
-        <input type="text" id="reg-name" placeholder="Alex Rivera" required>
-      </div>
-
-      <div class="form-group">
-        <label for="reg-business">Studio / Company Name</label>
-        <input type="text" id="reg-business" placeholder="Rivera Digital Studio">
-      </div>
-
-      <div class="form-group">
-        <label for="reg-email">Work Email</label>
-        <input type="email" id="reg-email" placeholder="alex@studio.com" required>
-      </div>
-
-      <div class="form-group">
-        <label for="reg-password">Password</label>
-        <input type="password" id="reg-password" placeholder="At least 6 characters" minlength="6" required>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Create Free Account</button>
-    </form>
-
-    <div class="auth-footer">
-      <span id="footer-text">Don't have an account? <a href="#" onclick="switchTab('register'); return false;">Sign up</a></span>
     </div>
+
+    <!-- RIGHT SIDE: Auth Card (Original) -->
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="brand-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+        </div>
+        <h1 id="auth-title">Welcome Back</h1>
+        <p id="auth-subtitle">Sign in to manage and dispatch your invoices.</p>
+      </div>
+
+      <div class="toggle-container">
+        <button type="button" class="toggle-btn active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+        <button type="button" class="toggle-btn" id="tab-register" onclick="switchTab('register')">Register</button>
+      </div>
+
+      <div id="alert-box" class="alert-box" style="display: none;"></div>
+
+      <form id="login-form" class="auth-form">
+        <div class="form-group">
+          <label for="login-email">Work Email</label>
+          <input type="email" id="login-email" placeholder="alex@studio.com" required>
+        </div>
+
+        <div class="form-group">
+          <div class="label-row">
+            <label for="login-password">Password</label>
+            <a href="#" class="forgot-link" onclick="handleForgotPassword(event)">Forgot?</a>
+          </div>
+          <input type="password" id="login-password" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign In</button>
+      </form>
+
+      <form id="register-form" class="auth-form" style="display: none;">
+        <div class="form-group">
+          <label for="reg-name">Full Name</label>
+          <input type="text" id="reg-name" placeholder="Alex Rivera" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-business">Studio / Company Name</label>
+          <input type="text" id="reg-business" placeholder="Rivera Digital Studio">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-email">Work Email</label>
+          <input type="email" id="reg-email" placeholder="alex@studio.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" placeholder="At least 6 characters" minlength="6" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Free Account</button>
+      </form>
+
+      <div class="auth-footer">
+        <span id="footer-text">Don't have an account? <a href="#" onclick="switchTab('register'); return false;">Sign up</a></span>
+      </div>
+    </div>
+
   </div>
 
   <script src="auth.js"></script>
